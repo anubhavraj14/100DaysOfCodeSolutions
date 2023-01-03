@@ -1,0 +1,38 @@
+Ques1. https://leetcode.com/problems/count-the-digits-that-divide-a-number/description/ 
+CODE:
+
+class Solution {
+public:
+    int countDigits(int num) {
+        int x,count=0,temp= num;
+        while(temp){
+            x = temp%10;
+            temp/=10;
+            if(!(num%x)) count++;  
+        }
+        return count;
+    }
+};
+
+
+Ques2. https://leetcode.com/problems/distinct-prime-factors-of-product-of-array/description/ 
+CODE: 
+
+class Solution {
+public:
+    int distinctPrimeFactors(vector<int>& nums) {
+        
+        map <long long,int> m;
+        for(auto val : nums){
+            long long t=2;
+            while(val>1){
+            if(val%t==0){
+                m[t];
+                val/=t;
+            }
+            else t++;
+        }
+        }
+        return m.size();
+    }
+};
