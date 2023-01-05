@@ -1,0 +1,22 @@
+Ques1. https://leetcode.com/problems/minimum-rounds-to-complete-all-tasks/description/ 
+CODE: 
+class Solution {
+public:
+    int minimumRounds(vector<int>& tasks) {
+        map <int,int> m;
+        for(auto val : tasks){
+            m[val]++;
+        }
+        int count=0;
+        for(auto val : m){
+            if(val.second==1) return -1;
+            else if(val.second>3){
+                count += ceil((val.second)/(float)3);
+            }
+            else count++;
+        }
+        return count;
+    }
+};
+
+
