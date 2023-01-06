@@ -1,0 +1,15 @@
+Ques1. https://leetcode.com/problems/maximum-ice-cream-bars/description/
+CODE:
+class Solution {
+public:
+    int maxIceCream(vector<int>& costs, int coins) {
+        sort(costs.begin(),costs.end());
+        int sum=0,count=0;
+        for(auto val : costs){
+            sum+= val;
+            if(sum > coins) return count;
+            else count++;
+        }
+        return count;
+    }
+};
