@@ -3,18 +3,17 @@ Ques1. https://leetcode.com/problems/gas-station/description/
 class Solution {
 public:
     int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {
-        int sum1=0,sum2=0,temp=0,final=0;
-        sum1 = accumulate(gas.begin(),gas.end(),sum1);
-        sum2 = accumulate(cost.begin(),cost.end(),sum2);
-        if(sum2>sum1) return -1;
-        
+        int sum=0,temp=0,final=0;
         for(int i=0; i<gas.size(); i++){
             temp += gas[i]-cost[i];
+            sum  += gas[i]-cost[i];
             if(temp<0) {final = i+1; temp=0;}
         }
-        return final;
+        return sum<0 ? -1:final;
     }
 };
+
+
 
 Ques2. https://leetcode.com/problems/shortest-distance-to-target-string-in-a-circular-array/description/
 ------------CODE------------------- 
