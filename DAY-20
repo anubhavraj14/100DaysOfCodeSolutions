@@ -1,0 +1,19 @@
+Ques1. https://leetcode.com/problems/length-of-last-word/description/
+------------CODE----------
+class Solution {
+public:
+    int lengthOfLastWord(string s) {
+        int i=0, count=0,ans;
+        while(s[i] != '\0'){
+            if(s[i] != ' '){
+                count++;
+                ans = count;
+            }
+            else{
+                count=0;
+            }
+            i++;
+        }
+        return ans;   
+    }
+};
