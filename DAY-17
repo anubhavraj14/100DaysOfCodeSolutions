@@ -1,0 +1,21 @@
+Ques1. https://leetcode.com/problems/non-decreasing-subsequences/description/
+------------CODE---------
+class Solution {
+public:
+    vector<vector<int>> findSubsequences(vector<int>& nums) {
+        set<vector<int>> res;
+        vector<int> sub;
+        helper(res, sub, 0, nums);
+        return vector<vector<int>>(res.begin(), res.end());
+    }
+    void helper(set<vector<int>>& res, vector<int>& sub, int start, vector<int>& nums) {
+        if (sub.size() >= 2) res.insert(sub);
+        for (int i = start; i < nums.size(); i++) {
+            if (sub.empty() || sub.back() <= nums[i]) {
+                sub.push_back(nums[i]);
+                helper(res, sub, i + 1, nums);
+                sub.pop_back();
+            }
+        }
+    }
+};
